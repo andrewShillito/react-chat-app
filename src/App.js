@@ -22,6 +22,11 @@ class App extends Component {
       { username: 'John', text: 'Hi, Amy! Good, you?' },
     ],
   }
+  handleAddMessage = (obj) => {
+    this.setState((prevState) => ({
+  	  messages: prevState.messages.concat(obj),
+  	}))
+  }
   render() {
     return (
       <div className="App">
@@ -33,6 +38,7 @@ class App extends Component {
     					username={user.username}
 						messages={this.state.messages}
 						key={user.username}
+						handleAddMessage={this.handleAddMessage}
     				/>
     			)
   			})}
