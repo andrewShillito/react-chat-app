@@ -32,6 +32,7 @@ class App extends Component {
     				<ChatWindow 
     					username={user.username}
 						messages={this.state.messages}
+						key={user.username}
     				/>
     			)
   			})}
