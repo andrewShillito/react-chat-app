@@ -26,7 +26,7 @@ class ChatWindow extends React.Component {
         <h2>Super Awesome Chat</h2>
         <div className="name sender">{this.props.username}</div>
         <ul className="message-list">
-          {this.props.messages.map((message) => (
+          {this.props.messages.map((message, index) => (
             <li
               key={index}
               className={
