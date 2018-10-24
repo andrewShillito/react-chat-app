@@ -1,7 +1,5 @@
 import React from "react";
 
-import React from "react";
-
 function ChatWindow(props) {
   return (
     <div className="chat-window">
@@ -35,5 +33,4 @@ function ChatWindow(props) {
   )
 }
 
-export default ChatWindow;
 export default ChatWindow;
