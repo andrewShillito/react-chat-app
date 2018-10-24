@@ -1,17 +1,32 @@
 import React from "react";
 
-function ChatWindow(props) {
+class ChatWindow extends React.Component {
+  state = {
+  	inputText: '',
+      }
+  isDisabled = () => {
+  	if (this.state.inputText === '') {
+      return true;
+    }
+    return false;
+  }
+  updateInputText = (value) => {
+  	this.setState(() => ({
+      inputText: value,
+    }))
+  }
+  render() {
   return (
     <div className="chat-window">
       <h2>Super Awesome Chat</h2>
-      <div className="name sender">{props.username}</div>
+      <div className="name sender">{this.props.username}</div>
 
       <ul className="message-list">
-        {props.messages.map((message, index) => (
+        {this.props.messages.map((message, index) => (
           <li
             key={index}
             className={
-              message.username === props.username ? 'message sender' : 'message recipient'
+              message.username === this.props.username ? 'message sender' : 'message recipient'
               }
             >
             <p>{`${message.username}: ${message.text}`}</p>
@@ -21,7 +36,13 @@ function ChatWindow(props) {
 
       <div>
       	<form className="input-group">
-      		<input type="text" className="form-control" placeholder="Enter your message..." />
+      		<input 
+			  type="text" 
+			  className="form-control" 
+			  placeholder="Enter your message..." 
+			  value={this.state.inputText}
+			  onChange={(event) => this.updateInputText(event.target.value)}
+			  />
       		<div className="input-group-append">
       			<button className="btn submit-button" disabled={this.isDisabled()}>
       				SEND
@@ -30,7 +51,8 @@ function ChatWindow(props) {
       	</form>
       </div>
 	</div>
-  )
+  	)
+  }
 }
 
 export default ChatWindow;

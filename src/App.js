@@ -22,10 +22,6 @@ class App extends Component {
       { username: 'John', text: 'Hi, Amy! Good, you?' },
     ],
   }
-  isDisabled = () => {
-    return false;
-  };
-
   render() {
     return (
       <div className="App">
